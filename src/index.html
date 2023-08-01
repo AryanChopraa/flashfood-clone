@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"></script>
+
+</head>
+
+<body class="font-figtree">
+
+  <!-- NAVBAR STARTED  -->
+
+  <nav class="fixed w-full z-20 py-6 sm:py-10 bg-blue-700">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4 sm:p-6">
+      <img src="./assets/logo-1.png" class="h-6 sm:h-8 mr-3 text-white" alt="Flowbite Logo">
+      
+      <!-- Mobile Menu Toggle Button -->
+     
+      <div class="hidden sm:flex sm:items-center sm:space-x-8 text-green-200 text-m font-semibold">
+        <a href="#" class="block py-2 pl-3 pr-4 rounded sm:bg-transparent" aria-current="page">HOW IT WORKS</a>
+        <a href="#" class="block py-2 pl-3 pr-4 rounded sm:bg-transparent" aria-current="page">LOCATIONS</a>
+        
+        <!-- About Dropdown Menu -->
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex py-2 pl-3 pr-4 rounded sm:bg-transparent" aria-haspopup="true" aria-expanded="false">
+              ABOUT
+              <span x-text="open ? '^' : 'v'"></span>
+            </button>
+            <ul x-show="open" @click.away="open = false" class="absolute top-10 right-0 z-10 py-2 px-4 bg-blue-700 rounded shadow-lg ">
+              <li><a href="#" class="flex p-4">OUR STORY</a></li>
+              <li><a href="#" class="flex p-4">FOOD WASTE</a></li>
+              <li><a href="#" class="flex p-4">THE TEAM</a></li>
+              <li><a href="#" class="flex p-4">PRESS ROOM</a></li>
+              <li><a href="#" class="flex p-4">IMPACT REPORT</a></li>
+            </ul>
+          </div>
+        
+        <a href="#" class="block py-2 pl-3 pr-4 rounded sm:bg-transparent" aria-current="page">SUPPORT</a>
+        <a href="#" class="block py-2 pl-3 pr-4 rounded sm:bg-transparent" aria-current="page">PARTNER</a>
+      
+      </div>
+      <button class="my-button-56 sm:block">DOWNLOAD</button>
+      <button data-collapse-toggle="navbar-sticky" type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+      aria-controls="navbar-sticky" aria-expanded="false" style="background-color: #4230DC;"
+      id="mobileMenuToggleBtn">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+
+    </div>
+    
+  
+    <div class="hidden sm:hidden mt-4" id="mobile-menu">
+      <ul class="space-y-4 text-white border-sky-800">
+        <li><a href="#about" class="block ml-10">About</a></li>
+        <li><a href="#features" class="block ml-10">Features</a></li>
+        <li><a href="#testimonials" class="block ml-10">Testimonials</a></li>
+        <li><a href="#contact" class="block ml-10">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <script>
+    const mobileMenuToggleBtn = document.getElementById('mobileMenuToggleBtn');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    mobileMenuToggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  
+    const aboutBtn = document.querySelector('[aria-haspopup="true"]');
+    const aboutDropdown = document.querySelector('[aria-expanded="false"]');
+  
+    aboutBtn.addEventListener('click', () => {
+      aboutDropdown.setAttribute('aria-expanded', (aboutDropdown.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'));
+    });
+  </script>
+
+  <!-- NAVBAR ENDED -->
+
+  <section class="bg-blue-700 py-12 sm:py-16 lg:-ml-48 lg:pt-56 lg:pb-24 overflow-hidden pt-40">
+    <div class="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 lg:flex lg:gap-8 xl:gap-10 lg:py-1 justify-between" >
+      <div class="lg:w-1/2">
+        <h1 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight leading-none text-white">Save money and
+          fight against food waste</h1>
+        <p class="mt-4 text-lg sm:text-xl text-white">Get massive savings on fresh food items like meat and produce that
+          are nearing their best before date at grocery stores across Canada and the U.S.</p>
+
+        <div class="mt-6 flex flex-col sm:flex-row items-center gap-4">
+          <img src="./assets/appstore.svg" width="120" alt="App Store">
+          <img src="./assets/playstore.svg" width="120" alt="Play Store">
+          <a href="#" class="text-green-200 no-underline font-medium ">How this works &gt;</a>
+        </div>
+      </div>
+      <div class="lg:w-1/2 lg:mt-0 lg:-mr-72">
+        <img src="./assets/hero1.png" alt="mockup" class="w-auto mx-auto  lg:h-[400px]">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- cta started -->
+  <div class="flex items-center  justify-center w-full mx-auto py-12 px-4">
+    <div class="shadow-lg lg:px-28 lg:py-10 rounded-xl lg:flex-row flex-col flex items-center justify-evenly">
+        <span class="text-center md:text-xl text-m font-semibold p-8">Are you a grocery chain that wants to work with Flashfood?</span>
+        <button class="my-button-69 ml-4 mb-6 lg:mb-0">Learn More</button>
+    </div>
+</div>
+<!-- cta ended -->
+
+  <!-- FEATURE SECTION STARTED  -->
+  <div class="flex justify-center items-center mt-12 sm:mt-32">
+    <h2 class="text-4xl sm:text-5xl font-bold mb-4">How it works</h2>
+  </div>
+
+  <div class="container mx-auto px-6 md:px-10 py-4 md:flex md:items-center md:justify-between bg-[#E5E5FE] rounded-xl md:mb-20 mb-10">
+    <div class="md:w-1/2 md:ml-20">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">First, use the free app to quickly and easily find discounted
+        food from wherever you are.</h2>
+        <br>
+      <ul class="list-disc pl-6 text-lg">
+        <li>Browse deals of up to 50% off at a store location near you.<p class="text-blue-700"> See Locations &gt;</p></li>
+        <br>
+        <li>Choose your discounted food items.</li>
+        <br>
+        <li>Pay right in the app using any major credit card, VISA debit card, or SNAP EBT card.</li>
+      </ul>
+    </div>
+
+    <div class="mt-8 md:w-1/2">
+      <img src="./assets/feature1.png" alt="Image" class="w-1/2 h-auto mx-auto">
+    </div>
+</div>
+  <!-- FEATURE SECTION CONTINUED -->
+  <div class="container mx-auto px-6 md:px-10 py-8 md:flex md:items-center md:justify-between bg-[#E5E5FE] rounded-xl md:mb-20 mb-10">
+    <div class="mt-8 md:w-1/2">
+      <img src="./assets/feature2.png" alt="Image" class="w-1/2 h-auto mx-auto">
+    </div>
+    
+    <div class="md:w-1/2 md:ml-8">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Then, pick up your Flashfood order at the grocery store.</h2>
+      <p class="text-lg">Head to the store, grab your food items from the Flashfood zone, and quickly confirm your order
+        with the customer service desk.</p>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-6 md:px-10 py-8 md:flex md:items-center md:justify-between bg-[#E5E5FE] rounded-xl md:mb-20 mb-10">
+    <div class="md:w-1/2">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Finally, enjoy good food, a great deal, and the good deed - you
+        just saved some food from the landfill.</h2>
+      <p class="text-lg text-blue-600">Learn more about Food Waste ></p>
+    </div>
+    
+    <div class="mt-8 md:w-1/2">
+      <img src="./assets/feature3.png" alt="Image" class="w-1/2 h-auto mx-auto">
+    </div>
+  </div>
+  <!-- FEATURE SECTION ENDED -->
+
+  <!-- BRANDS SECTION STARTED -->
+  <section class="bg-white py-8 md:py-20 lg:py-32">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6" id="imageGrid">
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/graygrids.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/lineicons.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5 sm:block">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/lineicons.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/uideck.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/ayroui.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/ayroui.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5 hidden-image">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/uideck.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5 hidden-image">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/ayroui.svg" alt="image" class="h-10 w-full" />
+            </a>
+            <a href="javascript:void(0)" class="flex items-center justify-center p-5 hidden-image">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/brands/ayroui.svg" alt="image" class="h-10 w-full" />
+            </a>
+        </div>
+        <div class="flex justify-center mt-4">
+            <button id="seeMoreButton" class="text-green-500 font-semibold hover:text-green-700">
+                See More
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+    const seeMoreButton = document.getElementById('seeMoreButton');
+    const hiddenImages = document.querySelectorAll('.hidden-image');
+
+    seeMoreButton.addEventListener('click', () => {
+      hiddenImages.forEach(image => {
+        image.classList.toggle('hidden');
+      });
+
+      seeMoreButton.textContent = 'See Less';
+    });
+
+    hiddenImages.forEach(image => {
+      image.classList.add('hidden');
+    });
+
+</script>
+
+
+
+
+
+
+
+
+  <!-- BRANDS SECTION ENDED -->
+
+  <!-- TESTIMONIALS -->
+  <div class="flex justify-center items-center lg:mx-48 mx-6 flex-col mt-8 md:mt-20">
+    <h2 class="text-4xl sm:text-5xl font-bold mb-3 text-center">We’ve helped thousands of people</h2>
+    <h2 class="text-4xl sm:text-5xl font-bold mb-3 text-center">save money on their groceries</h2>
+  </div>
+
+  <div class="w-full md:pl-20 lg:pl-10 md:pr-10 flex self-start flex-col mt-8 md:mt-20">
+    <div class="w-full rounded-lg overflow-hidden shadow-lg bg-white flex flex-col gap-5 p-6 md:py-8 lg:py-12 xl:py-16 md:px-8 lg:px-12 xl:px-20">
+      <img src="./assets/quotes.svg" width="44" alt="Quote">
+      <img src="./assets/stars.svg" width="100" alt="Stars">
+      <p class="text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+        PageMaker including versions of Lorem Ipsum.</p>
+      <p class="text-blue-600 text-m font-bold">@ACELIACSTRAVELS FROM AIRDRIE, ALBERTA</p>
+    </div>
+  </div>
+
+  <div class="w-full md:pl-4 lg:pl-10 md:pr-4 flex self-start flex-col mt-8 md:mt-20">
+    <div class="w-full rounded-lg overflow-hidden shadow-lg bg-white flex flex-col gap-5 p-6 md:py-8 lg:py-12 xl:py-16 md:px-8 lg:px-12 xl:px-20">
+    <img src="./assets/quotes.svg" width="44" alt="Quote">
+    <img src="./assets/stars.svg" width="100" alt="Stars">
+    <p class="text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+    the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+    scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+    electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+    Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+    PageMaker including versions of Lorem Ipsum.</p>
+    <p class="text-blue-600 text-m font-bold">@ACELIACSTRAVELS FROM AIRDRIE, ALBERTA</p>
+    </div>
+    
+      </div>
+      <div class="w-full md:pl-4 lg:pl-10 md:pr-4 flex self-start flex-col mt-8 md:mt-20 mb-20">
+        <div class="w-full rounded-lg overflow-hidden shadow-lg bg-white flex flex-col gap-5 p-6 md:py-8 lg:py-12 xl:py-16 md:px-8 lg:px-12 xl:px-20">
+          <img src="./assets/quotes.svg" width="44" alt="Quote">
+          <img src="./assets/stars.svg" width="100" alt="Stars">
+          <p class="text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
+          <p class="text-blue-600 text-m font-bold">@ACELIACSTRAVELS FROM AIRDRIE, ALBERTA</p>
+        </div>
+      </div>
+      <!-- TESTIMONIALS END -->
+      <!-- CALL TO ACTION -->
+  
+
+    <section class="bg-[#4230DC] py-12 sm:py-16 lg:-ml-48  lg:pb-24 overflow-hidden second-hero">
+        <div class="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 lg:flex lg:gap-8 xl:gap-10 lg:py-1 justify-between overflow-hidden" >
+          <div class="lg:w-1/2">
+            <p class="mt-4 text-lg sm:text-xl text-green-200 font-bold">ARE YOU READY YET ?</p>
+            <h1 class="text-3xl sm:text-4xl lg:text-7xl font-extrabold tracking-tight leading-none text-white">Save money and
+              fight against food waste</h1>
+            
+
+            <div class="mt-6 flex flex-col sm:flex-row items-center gap-4">
+              <img src="./assets/appstore.svg" width="120" alt="App Store">
+              <img src="./assets/playstore.svg" width="120" alt="Play Store">
+            
+            </div>
+          </div>
+          <div class="lg:w-1/2 lg:mt-0">
+            <img src="./assets/second-hero.jpeg" alt="mockup" class="w-full mx-auto lg:-mr-32" style="width: 500px;">
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTERS STARTS -->
+
+        
+
+            <footer class="w-full text-green-100 bg-[#06022B] body-font">
+                <div
+                    class="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+                    <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left" >
+                        <a class="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
+        
+                            <img src="./assets/footer-logo.svg">
+                        </a>
+                        <p class="mt-2 text-3xl font-bold text-white mb-4  hover:text-green-200">Find a Flashfood near you ></p>
+                        <div class="mt-4">
+                            <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start lg:-ml-4">
+                                <a class="text-gray-500 cursor-pointer hover:text-gray-700">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        class="w-10 h-10 text-white hover:text-green-200" viewBox="0 0 24 24">
+                                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                                    </svg>
+                                </a>
+                                <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-700">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    class="w-10 h-10 text-white hover:text-green-200" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="ml-3 cursor-pointer">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    class="w-10 h-10 text-white hover:text-green-200" viewBox="0 0 24 24">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                                    </svg>
+                                </a>
+                            </span>
+
+                           
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
+                        <div class="w-full px-4 lg:w-1/4 md:w-1/2 text-xl font-semibold">
+                            <h2 class="mb-3 tracking-widest text-white uppercase title-font hover:text-green-200">About</h2>
+                            <nav class="mb-10 list-none">
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Company</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Careers</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Blog</a>
+                                </li>
+                            </nav>
+                        </div>
+                        <div class="w-full px-4 lg:w-1/4 md:w-1/2 text-xl font-semibold">
+                            <h2 class="mb-3 tracking-widest text-white uppercase title-font hover:text-green-200">Support</h2>
+                            <nav class="mb-10 list-none">
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Contact Support</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Help Resources</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Release Updates</a>
+                                </li>
+                            </nav>
+                        </div>
+                        <div class="w-full px-4 lg:w-1/4 md:w-1/2 text-xl font-semibold">
+                            <h2 class="mb-3 tracking-widest text-white uppercase title-font hover:text-green-200">Platform</h2>
+                            <nav class="mb-10 list-none">
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Terms &amp; Privacy</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Pricing</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">FAQ</a>
+                                </li>
+                            </nav>
+                        </div>
+                        <div class="w-full px-4 lg:w-1/4 md:w-1/2 text-xl font-semibold">
+                            <h2 class="mb-3 tracking-widest text-white uppercase title-font hover:text-green-200">Contact</h2>
+                            <nav class="mb-10 list-none">
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Send a Message</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">Request a Quote</a>
+                                </li>
+                                <li class="mt-3 lg:mt-10">
+                                    <a class="text-white cursor-pointer hover:text-green-200">+123-456-7890</a>
+                                </li>
+                            </nav>
+                        </div>
+                        
+                    </div>
+                    
+    
+                    
+            </footer>
+            <div class="bg-[#06022B]">
+                <div class="container px-5 py-4 mx-auto flex justify-center md:justify-end lg:mr-32">
+                    <p class="text-lg text-gray-400 capitalize"> Flashfood Inc. 2023. All rights reserved.</p>
+                </div>
+
+
+                <script type="module" src="./script.js"></script>
+
+
+    </body>
+  
+    </html>
+
+
